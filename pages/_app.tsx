@@ -1,6 +1,7 @@
 import '@/styles/globals.css'
 import Head from 'next/head'
 import type { AppProps } from 'next/app'
+import Link from 'next/link'
 
 // * Import the router
 import { useRouter } from 'next/router'
@@ -14,7 +15,7 @@ import ProtectedRoute from '@/components/ProtectedRoute'
 // * Define routes that should be protected
 // TIP: You can also use a regex to match multiple routes
 // TIP: If you have more non-protected routes than protected routes, you can also use a whitelist approach (e.g. const publicRoutes = ['/login', '/signup'])
-const protectedRoutes = ['/secret-page']
+const protectedRoutes = ['/secret-page'] // TODO remember to create those pages
 
 export default function App({ Component, pageProps }: AppProps) {
   // * Get the router
@@ -31,6 +32,13 @@ export default function App({ Component, pageProps }: AppProps) {
 
       {/* * Wrap the entire app in the AuthProvider */}
       <AuthProvider>
+        {/* Home button */}
+        {router.pathname !== '/' && (
+          <div>
+            <Link href='/'>Home</Link>
+          </div>
+        )}
+
         {
           // * Check if the current route is in the protectedRoutes array
           protectedRoutes.includes(router.pathname) ? (

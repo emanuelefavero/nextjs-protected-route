@@ -12,7 +12,8 @@ export default function ProtectedRoute({
 
   useEffect(() => {
     if (!user) {
-      router.push('/login')
+      // router.push('/login') // ! Redirect to login page
+      router.push('/') // ! Redirect to home page
     }
   }, [router, user])
 
