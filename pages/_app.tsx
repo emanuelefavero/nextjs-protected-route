@@ -3,13 +3,9 @@ import Head from 'next/head'
 import type { AppProps } from 'next/app'
 import Link from 'next/link'
 
-// * Import the router
+// * Import router, context AuthProvider, and ProtectedRoute component
 import { useRouter } from 'next/router'
-
-// * Import the context AuthProvider
 import { AuthProvider } from '@/context/AuthContext'
-
-// * Import the ProtectedRoute component
 import ProtectedRoute from '@/components/ProtectedRoute'
 
 // * Define routes that should be protected
@@ -18,7 +14,7 @@ import ProtectedRoute from '@/components/ProtectedRoute'
 const protectedRoutes = ['/secret-page'] // TODO remember to create those pages
 
 export default function App({ Component, pageProps }: AppProps) {
-  // * Get the router
+  // Get the router
   const router = useRouter()
 
   return (

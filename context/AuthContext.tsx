@@ -10,6 +10,7 @@ const AuthContext = createContext({
   setUser: (user: null | IUser) => {},
 })
 
+// * Custom hook to use the AuthContext
 export const useAuth = () => useContext(AuthContext)
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {

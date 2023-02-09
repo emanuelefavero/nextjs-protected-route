@@ -7,7 +7,7 @@ export default function ProtectedRoute({
 }: {
   children: React.ReactNode
 }) {
-  const { user } = useAuth()
+  const { user } = useAuth() // user from context
   const router = useRouter()
 
   useEffect(() => {
@@ -17,5 +17,6 @@ export default function ProtectedRoute({
     }
   }, [router, user])
 
+  // * If the user is logged in, render the children, otherwise, render null
   return <>{user ? children : null}</>
 }

@@ -4,6 +4,7 @@ import Link from 'next/link'
 export default function Home() {
   const { user, setUser } = useAuth()
 
+  // ! Hard coded login and logout functions for demo purposes
   const login = () => setUser({ id: '1', email: 'pam@paper.com' })
   const logout = () => setUser(null)
 
